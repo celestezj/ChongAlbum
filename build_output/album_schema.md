@@ -75,10 +75,10 @@
 | 名称 | 显示 | HTML 实体 |
 |------|------|-----------|
 | `"cross"` | ✞ | `&#10014;` |
-| `"star"` | ✠ | `&#10032;` |
-| `"arrow"` | ➔ | `&#10115;` |
-| `"eight"` | ➐ | `&#10108;` |
-| `"thirteen"` | ➓ | `&#10153;` |
+| `"star"`  | ✰    | `&#10032;` |
+| `"four"` | ➃ | `&#10115;` |
+| `"seven"` | ➐ | `&#10108;` |
+| `"arrow"` | ➩ | `&#10153;` |
 
 ---
 
@@ -87,7 +87,8 @@
 ```json
 "about": {
   "text": "About",
-  "text_style": ["rotated2", "reverse"],
+  "text_rotation": "rotated2",
+  "text_reverse": true,
   "link": "https://www.wenchong.space",
   "content": "<strong>...</strong> description with HTML"
 }
@@ -111,34 +112,42 @@
   "albums": [
     {
       "id": 1,
-      "img": "https://example.com/photo1.jpg",
+      "img": "https://gitee.com/Langwenchong/figure-bed/raw/master/SKY_20210513_225400__edit_284979137428388.jpg",
       "title": "Memo",
       "text": "Valley",
       "deco": "cross",
-      "quote": "May all the beauty in the world be at the right time.",
-      "overlay": "You are like a dazzling light in a mountain stream."
+      "quote": "\"May all the beauty in the world be at the right time.\"",
+      "overlay": "\"You are like a dazzling light in a mountain stream that illuminates my whole world\""
     },
     {
       "id": 2,
-      "img": "https://example.com/photo2.jpg",
+      "img": "https://gitee.com/Langwenchong/figure-bed/raw/master/IMG_20210101_230456.jpg",
       "title": "Wish",
       "title_style": ["straight", "bottom"],
       "text": "Fireworks",
       "text_style": ["bottom"],
       "text_rotation": "rotated1",
-      "deco": "arrow",
+      "deco": "four",
       "deco_top": true,
-      "overlay": "The fireworks were beautiful that night."
+      "overlay": "-The fireworks were beautiful that night and I made a good wish."
     },
     {
       "id": 4,
-      "img": "https://example.com/photo4.jpg",
+      "img": "https://gitee.com/Langwenchong/figure-bed/raw/master/SKY_20210425_111925__edit_285943484172511.jpg",
       "title": "Dragon",
       "text": "Adventure",
       "text_style": ["bottom", "right"],
       "text_rotation": "rotated3",
-      "overlay": "Even if there are many dangers ahead..."
-    }
+      "overlay": "Even if there are many dangers ahead, you and I will go ahead"
+    },
+    {
+      "id": 18,
+      "img": "https://gitee.com/Langwenchong/figure-bed/raw/master/SKY_20210206_185723__edit_190504103262075.jpg",
+      "title": "Sea",
+      "text": "deep",
+      "quote": "\"The soft light roams under the sea\"",
+      "overlay": "The soft light roams under the sea"
+    },
   ],
   "about": {
     "text": "About",

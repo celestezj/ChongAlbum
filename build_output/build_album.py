@@ -16,11 +16,11 @@ import re
 
 # ---- Deco symbols: semantic name → HTML entity ----
 DECO_MAP = {
-    "cross":    "&#10014;",
-    "star":     "&#10032;",
-    "arrow":    "&#10115;",
-    "eight":    "&#10108;",
-    "thirteen": "&#10153;",
+    "cross":    "&#10014;", #✞
+    "star":     "&#10032;", #✰
+    "four":     "&#10115;", #➃
+    "seven":    "&#10108;", #❼
+    "arrow":    "&#10153;", #➩
 }
 
 
@@ -74,11 +74,11 @@ def render_grid_item(item):
 
     # --- title ---
     title_cls = cls("box__title", *title_styles)
-    title_class_attr = f' class="{title_cls}"' if title_styles else ""
+    title_class_attr = f' class="{title_cls}"' if title_styles else ' class="box__title"'
 
     # --- text ---
     text_cls = cls("box__text", *text_styles)
-    text_class_attr = f' class="{text_cls}"' if text_styles else ""
+    text_class_attr = f' class="{text_cls}"' if text_styles else ' class="box__text"'
 
     # text-inner modifiers
     inner_mods = []
@@ -120,7 +120,7 @@ def render_about_item(about):
     content = about.get("content", "")
 
     text_cls = cls("box__text", *text_styles)
-    text_class_attr = f' class="{text_cls}"' if text_styles else ""
+    text_class_attr = f' class="{text_cls}"' if text_styles else ' class="box__text"'
 
     inner_mods = []
     if text_rotation:
@@ -152,12 +152,12 @@ def render_overlay_item(item):
     # title modifiers
     title_styles = title_modifiers(item.get("title_style", []))
     title_cls = cls("box__title", *title_styles)
-    title_attr = f' class="{title_cls}"' if title_styles else ""
+    title_attr = f' class="{title_cls}"' if title_styles else ' class="box__title"'
 
     # text modifiers
     text_styles = text_modifiers(item.get("text_style", []))
     text_cls = cls("box__text", *text_styles)
-    text_attr = f' class="{text_cls}"' if text_styles else ""
+    text_attr = f' class="{text_cls}"' if text_styles else ' class="box__text"'
 
     inner_mods = []
     if item.get("text_rotation"):
@@ -190,8 +190,15 @@ def render_overlay_item(item):
 
 def render_grid(albums, about):
     """Render the full <div class="grid"> content (items only, not the wrapper)."""
-    items = [render_grid_item(a) for a in albums]
-    items.append(render_about_item(about))
+    if about.get('pos'):
+        items = []
+        for i,a in enumerate(albums):
+            items.append(render_grid_item(a))
+            if i == (about.get('pos')-1):
+                items.append(render_about_item(about))
+    else:
+        items = [render_grid_item(a) for a in albums]
+        items.append(render_about_item(about))
     return "\n".join(items)
 
 

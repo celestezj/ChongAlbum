@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk '/<a class=\"grid__item\"/{flag=1} flag; /<\\\\/a>/{if\\(flag\\) flag=0}' \"Chong's photo gallery.html\")",
+      "Bash(awk '/overlay__item/,/\\\\/div>[\\\\s]*$/ {if\\(seen\\) {if\\(/\\\\/div>[\\\\s]*$/\\) exit}}; /overlay__item/{seen=1; print; next} seen{print}' \"Chong's photo gallery.html\")",
+      "Bash(python build_album.py -j album.json -t template.html -o index.html)",
+      "Bash(python -c ' *)"
+    ]
+  }
+}
